@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>你會成為什麼花生？</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7EED2;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.cover {
+			background-image: url("cover.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.cover h1 {
+			font-size: 48px;
+			color: #FFFFFF;
+			text-shadow: 2px 2px #000000;
+		}
+		.cover button {
+			background-color: #E29F45;
+			color: #FFFFFF;
+			font-size: 24px;
+			padding: 10px 30px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 2px 2px #000000;
+		}
+		.question {
+			display: none;
+			padding: 20px;
+		}
+		.question h2 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+		.question label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 24px;
+		}
+		.question input[type="radio"] {
+			margin-right: 10px;
+			transform: scale(1.5);
+		}
+		.question button {
+			background-color: #E29F45;
+			color: #FFFFFF;
+			font-size: 24px;
+			padding: 10px 30px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 2px 2px #000000;
+		}
+		.result {
+			display: none;
+			padding: 20px;
+		}
+		.result h2 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+		.result img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		.result button {
+			background-color: #E29F45;
+			color: #FFFFFF;
+			font-size: 24px;
+			padding: 10px 30px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 2px 2px #000000;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="cover">
+			<h1>你會成為什麼花生？</h1>
+			<button onclick="showQuestion()">開始測試</button>
+		</div>
+		<div class="question">
+			<h2>問題1：你喜歡吃辣嗎？</h2>
+			<label><input type="radio" name="answer" value="1">喜歡</label>
+			<label><input type="radio" name="answer" value="2">不喜歡</label>
+			<button onclick="showResult()">下一步</button>
+		</div>
+		<div class="result">
+			<h2>測試結果</h2>
+			<img id="resultImg" src="" alt="result">
+			<button onclick="restart()">重新測試</button>
+		</div>
+	</div>
+	<script>
+		// JavaScript代码
+		function showQuestion() {
+			document.querySelector(".cover").style.display = "none";
+			document.querySelector(".question").style.display = "block";
+		}
+		function showResult() {
+			var answer = document.querySelector('input[name="answer"]:checked').value;
+			var resultImg = document.getElementById("resultImg");
+			if (answer == 1) {
+				resultImg.src = "result1.jpg";
+			} else {
+				resultImg.src = "result2.jpg";
+			}
+			document.querySelector(".question").style.display = "none";
+			document.querySelector(".result").style.display = "block";
+	}
+		function restart() {
+			document.querySelector(".result").style.display = "none";
+			document.querySelector(".cover").style.display = "flex";
+		}
+	</script>
+</body>
+</html>
